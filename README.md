@@ -2,6 +2,8 @@
 Curso de **angular** indra
 
 OCtubre 2017
--A
+- A
+- B
+
 
 
