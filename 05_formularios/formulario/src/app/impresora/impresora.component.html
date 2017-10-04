@@ -1,0 +1,53 @@
+<article>
+
+ <h2>User</h2>
+    <p>
+<input type="text" placeholder="Introduzca user..." [(ngModel)]="user"/>
+
+    </p>
+  <!--Radio-Buttos-->
+  <h2>Selecciona una Impresora</h2>
+  <div *ngFor="let impresora of aImpresoras">
+      <input type="radio" 
+          name ="printer" [(ngModel)]="impresoraSeleccionada" [value]="impresora" 
+          (change)="mostrarFinal=true">
+      <label>{{impresora}}</label>
+  </div>
+
+  <!--Checkbox-->    
+  <h2>Seleción de opciones</h2>
+  <p>
+      <input id="print" type="checkbox" [(ngModel)]="print" [disabled]="!impresoraSeleccionada" (change)="mostrarFinal=true; avisarPrint()">
+      <label for="print">Imprimir resultado</label><br>
+      
+      <input id="tono" type="checkbox" [(ngModel)]="isClaro"  [disabled]="!impresoraSeleccionada"   (change)="mostrarFinal=true"> 
+      <label for="tono">Tono claro</label>			
+  </p>
+  
+  <!--Select/options-->    
+  <p>
+    <label for="select">Provincia </label>
+    <select id="select" [(ngModel)]="provinciaSeleccionada" (ngModelChange)="avisarProvincia()"> 
+        <option *ngFor="let provincia of aProvincias"
+            [ngValue]="provincia">
+            {{provincia.nombre}}
+        </option>
+    </select>
+
+
+
+</p>	
+  <div *ngIf="mostrarFinal">
+      <h2>Resultado</h2>
+      <ul>
+           <li>User: {{user}}</li> 
+          
+          <li>Impresora seleccionada: {{impresoraSeleccionada}}</li>                   
+          <li>Opción print seleccionada: {{print}}</li>
+          <li>Opción claro seleccionada: {{isClaro}}</li>
+          <div *ngIf="privinciaSelect">
+            <li>Provincia elegida: {{provinciaSeleccionada.nombre}}</li>
+          </div>
+      </ul>    
+  </div>	
+</article>

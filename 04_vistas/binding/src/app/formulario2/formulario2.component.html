@@ -1,0 +1,9 @@
+<h2>Banana in a box</h2>
+<p>
+    <label for="input-name2">escribe tu nombre</label>
+  <input id="input-name2" type="text" [(ngModel)]="sName" placeholder="introduzca su nombre...">
+
+  <button id= "borrar" (click)='btnBorrar($event)'>Borrar</button>
+</p>
+
+hola {{sName.toUpperCase()}}

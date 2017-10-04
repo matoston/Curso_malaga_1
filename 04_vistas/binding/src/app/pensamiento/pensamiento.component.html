@@ -1,0 +1,16 @@
+<h2>Pensamientoooo</h2>
+<p>
+    <label for="idea">Comparte idea</label>
+  <input id="idea" type="text" [(ngModel)]="idea" placeholder="introduzca valor...">
+
+  <button id= "anadir" (click)='btnAnadir()'>Añadir</button>
+  <button id= "borrar" (click)='btnBorrar($event)'>Borrar</button>
+</p>
+
+
+<div *ngIf="aIdeas.length>0"  >
+<ul>
+  <p>lista de ideas</p>
+    <li *ngFor="let idea of aIdeas">{{idea}}</li>
+  </ul>
+</div>
